@@ -2,6 +2,7 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:flutter/widgets.dart';
 
 void main() => runApp(const MyApp());
@@ -101,11 +102,12 @@ class MyText extends StatelessWidget {
         color: Colors.red, 
         fontStyle: FontStyle.italic,
         letterSpacing: 5, 
-
+        wordSpacing: 12,
         decoration: TextDecoration.underline,
         decorationColor: Colors.black, 
         decorationStyle: TextDecorationStyle.dashed),
        textAlign: TextAlign.center,
+       textDirection: TextDirection.rtl,
        maxLines: 3,
        overflow: TextOverflow.ellipsis,
        ),
