@@ -1,0 +1,30 @@
+{
+  "id": "",
+  "name": "",
+  "font_family": "iconfont",
+  "css_prefix_text": "icon-",
+  "description": "",
+  "glyphs": [
+    {
+      "icon_id": "1090",
+      "name": "图书",
+      "font_class": "tushu",
+      "unicode": "f00a1",
+      "unicode_decimal": 983201
+    },
+    {
+      "icon_id": "5147",
+      "name": "图书音像",
+      "font_class": "tushuyinxiang",
+      "unicode": "3461",
+      "unicode_decimal": 13409
+    },
+    {
+      "icon_id": "33997760",
+      "name": "书吧",
+      "font_class": "shuba",
+      "unicode": "e624",
+      "unicode_decimal": 58916
+    }
+  ]
+}
