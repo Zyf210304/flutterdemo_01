@@ -32,8 +32,10 @@ class MyHomePage extends StatelessWidget {
     print(listData);
   }
 
-  Widget _initGrideViewData(context, i) {
-    return Container(
+  List<Widget> _initGrideViewData() {
+    List<Widget> tempList = [];
+    for (var i = 0; i < listData.length; i++) {
+      tempList.add(Container(
         decoration: BoxDecoration(color: Colors.blue, 
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.red)
@@ -48,29 +50,27 @@ class MyHomePage extends StatelessWidget {
             ),
             Divider(height: 5,),
             Text("${listData[i]["title"]}  ---$i",
-                style: TextStyle(color: Colors.white, fontSize: 15)),
+                style: TextStyle(color: Colors.white, fontSize: 20)),
             Divider(height: 5,),
             Text("${listData[i]["autor"]}  ---$i",
-                style: TextStyle(color: Colors.red, fontSize: 12)),
+                style: TextStyle(color: Colors.red, fontSize: 20)),
           ],
         ),
-      );
-
+      ));
+    }
+    return tempList;
   }
 
   @override
   Widget build(BuildContext context) {
-    return GridView.builder(
-      padding: const EdgeInsets.all(10),
-      itemCount: listData.length,
-      gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-      crossAxisCount: 3, 
-      // maxCrossAxisExtent: 150,
+    return GridView.extent(
+      padding: EdgeInsets.all(10),
+      // crossAxisCount: 3, 
+      maxCrossAxisExtent: 150,
       crossAxisSpacing: 10, //水平间距
       mainAxisSpacing: 10, //竖直间距
       childAspectRatio: 0.4,  //宽高比
-      ),
-      itemBuilder:_initGrideViewData,
+      children: _initGrideViewData(),
     );
   }
 }
