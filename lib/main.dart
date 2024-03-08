@@ -37,7 +37,9 @@ class MyHomePage extends StatelessWidget {
         return  ListTile(
           title: Text("${listData[index]["title"]}, ---${index +10}"),
           subtitle: Text("${listData[index]["autor"]}, ---$index"),
-          trailing: Image.network("${listData[index]["imageUrl"]}"),
+          // trailing: Image.network("${listData[index]["imageUrl"]}"),
+          trailing: index % 3  == 0 ?Image.network("${listData[index]["imageUrl"]}") : null,
+          leading: index % 3  != 0 ?Image.network("${listData[index]["imageUrl"]}") : null,
         );
       }
       );
