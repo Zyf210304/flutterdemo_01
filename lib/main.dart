@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/rendering.dart';
-import 'package:flutter/widgets.dart';
-
+import './res/listData.dart';
 
 void main() => runApp(const MyApp());
 
@@ -19,63 +17,29 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Material App Bar'),
         ),
-        body: const MyHomePage(),
+        body: MyHomePage(),
       ),
     );
   }
 }
 
 class MyHomePage extends StatelessWidget {
-  const MyHomePage({super.key});
+  MyHomePage({super.key}) {
+    print(listData);
+  }
+
 
   @override
   Widget build(BuildContext context) {
-    return SizedBox(
-      height: 125,
-      child:  ListView(
-      scrollDirection: Axis.horizontal, //水平列表
-      padding: EdgeInsets.fromLTRB(8, 10, 8, 10),
-      children:  <Widget>[
-          Container(
-            margin: EdgeInsets.fromLTRB(5, 0, 5, 0),
-            height: 120,  //水平列表 高度自适应 设置无效
-            width: 120, //垂直列表 宽度自适应 设置无效
-            decoration: BoxDecoration(
-              color: Colors.red,
-            ),
-            child: Column(
-              children: [
-                Image.network("https://pic4.zhimg.com/v2-e49748c39ca64ab1c329512b5fc6d111_r.jpg?source=1940ef5c"),
-                Text("标签"),
-              ],
-              ),
-          ),
-          Container(
-            width: 120,
-            decoration: BoxDecoration(
-              color: Colors.yellow,
-              
-            ),
-          ),
-
-          Container(
-            width: 120,
-            decoration: BoxDecoration(
-              color: Colors.blue,
-              
-            ),
-          ),
-
-          Container(
-            width: 120,
-            decoration: BoxDecoration(
-              color: Colors.purple,
-              
-            ),
-          ),
-
-      ],
-    ),
-    );
+    return ListView.builder(
+      itemCount: listData.length,
+      itemBuilder: (context, index) {
+        return  ListTile(
+          title: Text("${listData[index]["title"]}, ---${index +10}"),
+          subtitle: Text("${listData[index]["autor"]}, ---$index"),
+          trailing: Image.network("${listData[index]["imageUrl"]}"),
+        );
+      }
+      );
   }
 }
