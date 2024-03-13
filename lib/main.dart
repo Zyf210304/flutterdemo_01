@@ -24,54 +24,31 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(padding:  EdgeInsets.all(10),
-     child: ListView(
-      children: [
-        Container(
+    final size = MediaQuery.of(context).size;
+
+    return const Column(
+      children: [ 
+        SizedBox(
           width: double.infinity,
-          height: 200,
-          color: Colors.black,
+          height: 50,
+          child: Stack(
+            children: [
+              Align(alignment: Alignment.centerLeft, child: Text("左边"),),
+               Align(alignment: Alignment.centerRight, child: Text("右边"),),
+            ],
+          ),
         ),
-         SizedBox(height: 5,),
-        Row(
-          children: [
-            Expanded(
-                flex: 2,
-                child: SizedBox(
-                  height: 180,
-                  child: Image.network(
-                  "https://pic4.zhimg.com/v2-e49748c39ca64ab1c329512b5fc6d111_r.jpg?source=1940ef5c",
-                  fit: BoxFit.cover,
-                )),
-            ),
-           
-            Expanded(
-                flex: 1,
-                child: SizedBox(
-                  height: 180,
-                  child: Column(
-                  children: [
-                    Expanded(
-                        flex: 2,
-                        child: Image.network(
-                          "https://pic4.zhimg.com/v2-e49748c39ca64ab1c329512b5fc6d111_r.jpg?source=1940ef5c",
-                          fit: BoxFit.cover,
-                        )),
-                    SizedBox(height: 5,),
-                    Expanded(
-                        flex: 2,
-                        child: Image.network(
-                          "https://pic4.zhimg.com/v2-e49748c39ca64ab1c329512b5fc6d111_r.jpg?source=1940ef5c",
-                          fit: BoxFit.cover,
-                        )),
-                  ],
-                )),
-                ),
-          ],
-        )
+        SizedBox(
+          width: double.infinity,
+          height: 50,
+          child: Stack(
+            children: [
+              Positioned(left: 10, child: Text("左边")),
+              Positioned(right: 10, child: Text("右边")),
+            ],
+          ),
+        ),
       ],
-    ),
     );
   }
 }
-
