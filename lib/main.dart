@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter/widgets.dart';
@@ -27,205 +28,89 @@ class HomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.all(8),
-      child: ListView(
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ElevatedButton(
-                  onPressed: () {
-                    print("ElevatedButton");
-                  },
-                  child: const Text("升高按钮")),
-              TextButton(
-                  onPressed: () {
-                    print("TextButton");
-                  },
-                  child: const Text("文本按钮")),
-              OutlinedButton(
-                  onPressed: () {
-                    print("OutlinedButton");
-                  },
-                  child: Text("边框按钮")),
-              IconButton(
-                  onPressed: () {
-                    print("IconButton");
-                  },
-                  icon: const Icon(Icons.settings))
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ElevatedButton.icon(
-                  onPressed: () {
-                    print("ElevatedButton.icon");
-                  },
-                  icon: const Icon(Icons.thumb_up),
-                  label: const Text("点赞")),
-              TextButton.icon(
-                  onPressed: () {
-                    print("TextButton.icon");
-                  },
-                  icon: const Icon(Icons.thumb_up),
-                  label: const Text("点赞")),
-              OutlinedButton.icon(
-                  onPressed: () {
-                    print("OutlinedButton.icon");
-                  },
-                  icon: const Icon(Icons.thumb_up),
-                  label: const Text("点赞")),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              ElevatedButton.icon(
+        padding: EdgeInsets.all(10),
+        child: ListView(
+          children: [
+            Row(
+              children: [
+                Text(
+                  "热搜",
+                  style: Theme.of(context).textTheme.titleLarge,
+                )
+              ],
+            ),
+            const Divider(),
+            Wrap(
+              spacing: 10,
+              runSpacing: 10,
+              children: [
+                Button("按钮文本", onPressed: () {}),
+                Button("按钮文本   ", onPressed: () {}),
+                Button("按钮文  本", onPressed: () {}),
+                Button("按钮              文本", onPressed: () {}),
+                Button("按钮文本", onPressed: () {}),
+                Button("按钮   文本", onPressed: () {}),
+                Button("按钮  文本", onPressed: () {}),
+                Button("按  钮文本", onPressed: () {}),
+                Button("按     钮文本", onPressed: () {}),
+              ],
+            ),
+            const SizedBox(
+              height: 10,
+            ),
+            Row(
+              children: [
+                Text(
+                  "历史记录",
+                  style: Theme.of(context).textTheme.titleLarge,
+                )
+              ],
+            ),
+            const Divider(),
+            const Column(
+              children: [
+                ListTile(title: Text("历史记录1")),
+                ListTile(title: Text("历史记录2")),
+                ListTile(title: Text("历史记录3")),
+                ListTile(title: Text("历史记录4")),
+              ],
+            ),
+            const SizedBox(
+              height: 40,
+            ),
+            Padding(
+              padding: const EdgeInsets.all(40),
+              child: OutlinedButton.icon(
                   style: ButtonStyle(
-                    backgroundColor:
-                        MaterialStateProperty.all(Colors.red), //背景颜色
-                    foregroundColor:
-                        MaterialStateProperty.all(Colors.white), //文本颜色
+                    backgroundColor: MaterialStateProperty.all(
+                        const Color.fromARGB(221, 227, 216, 216)),
+                    foregroundColor: MaterialStateProperty.all(Colors.black87),
                   ),
-                  onPressed: () {
-                    print("ElevatedButton.icon");
-                  },
-                  icon: const Icon(Icons.thumb_up),
-                  label: const Text("点赞")),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: [
-              Container(
-                //通过container 控制按钮大小
-                height: 60,
-                width: 200,
-                child: ElevatedButton.icon(
-                    style: ButtonStyle(
-                      backgroundColor:
-                          MaterialStateProperty.all(Colors.red), //背景颜色
-                      foregroundColor:
-                          MaterialStateProperty.all(Colors.white), //文本颜色
-                    ),
-                    onPressed: () {
-                      print("ElevatedButton.icon");
-                    },
-                    icon: const Icon(
-                      Icons.thumb_up,
-                    ),
-                    label: const Text(
-                      "点赞",
-                      style: TextStyle(fontSize: 20),
-                    )),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            children: [
-              Expanded(
-                flex: 1,
-                child: Container(
-                  margin: EdgeInsets.all(20),
-                  height: 40,
-                  child: ElevatedButton(
-                      style: ButtonStyle(
-                        backgroundColor:
-                            MaterialStateProperty.all(Colors.red), //背景颜色
-                        foregroundColor:
-                            MaterialStateProperty.all(Colors.white), //文本颜色
-                      ),
-                      onPressed: () {
-                        print("ElevatedButton");
-                      },
-                      child: const Text(
-                        "登录",
-                        style: TextStyle(fontSize: 20),
-                      )),
-                ),
-              ),
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            children: [
-              //设置边角按钮
-              ElevatedButton(
-                  style: ButtonStyle(
-                    shape: MaterialStateProperty.all(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(5) //配置圆角
-                        )),
-                    backgroundColor: MaterialStateProperty.all(Colors.red),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                  ),
-                  onPressed: () {
-                    print("ElevatedButton");
-                  },
-                  child: const Text(
-                    "按钮",
-                    style: TextStyle(fontSize: 20),
-                  )),
+                  onPressed: () {},
+                  icon: const Icon(Icons.delete),
+                  label: const Text("清空历史记录")),
+            )
+          ],
+        ));
+  }
+}
 
-              //设置边角按钮
-              Container(
-                width: 100,
-                height: 100,
-                child: ElevatedButton(
-                    style: ButtonStyle(
-                      shape: MaterialStateProperty.all(const CircleBorder(
-                          side:
-                              BorderSide(color: Colors.yellow, width: 2) //配置圆形
-                          )),
-                      backgroundColor: MaterialStateProperty.all(Colors.red),
-                      foregroundColor: MaterialStateProperty.all(Colors.white),
-                    ),
-                    onPressed: () {
-                      print("ElevatedButton");
-                    },
-                    child: const Text(
-                      "按钮",
-                      style: TextStyle(fontSize: 20),
-                    )),
-              )
-            ],
-          ),
-          const SizedBox(
-            height: 20,
-          ),
-          Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              OutlinedButton(
-                  style: ButtonStyle(
-                    side: MaterialStateProperty.all(
-                      BorderSide(width: 1, color: Colors.black)
-                    ),
-                    backgroundColor: MaterialStateProperty.all(Colors.red),
-                    foregroundColor: MaterialStateProperty.all(Colors.white),
-                  ),
-                  onPressed: () {
-                    print("11");
-                  },
-                  child: const Text("边框按钮")),
-            ],
-          ),
-        ],
+//自定义按钮
+class Button extends StatelessWidget {
+  String text; //按钮文字
+  void Function()? onPressed; //按钮方法
+  Button(this.text, {super.key, required this.onPressed});
+
+  @override
+  Widget build(BuildContext context) {
+    return ElevatedButton(
+      style: ButtonStyle(
+        backgroundColor:
+            MaterialStateProperty.all(const Color.fromARGB(221, 227, 216, 216)),
+        foregroundColor: MaterialStateProperty.all(Colors.black87),
       ),
+      onPressed: onPressed,
+      child: Text(text),
     );
   }
 }

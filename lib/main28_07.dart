@@ -24,17 +24,23 @@ class HomePage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final size = MediaQuery.of(context).size;
+    // final size = MediaQuery.of(context).size;
 
     return const Column(
-      children: [ 
+      children: [
         SizedBox(
           width: double.infinity,
           height: 50,
           child: Stack(
             children: [
-              Align(alignment: Alignment.centerLeft, child: Text("左边"),),
-               Align(alignment: Alignment.centerRight, child: Text("右边"),),
+              Align(
+                alignment: Alignment.centerLeft,
+                child: Text("左边"),
+              ),
+              Align(
+                alignment: Alignment.centerRight,
+                child: Text("右边"),
+              ),
             ],
           ),
         ),
