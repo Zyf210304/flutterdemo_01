@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import './pages/tabs38.dart';
+
+import './routers/routers.dart';
+
 
 void main() => runApp(const MyApp());
 
@@ -8,10 +10,18 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'Material App',
-      home: Tabs(),
-    );
+    return MaterialApp(
+        debugShowCheckedModeBanner: false,
+        title: 'Material App',
+        initialRoute: "/",
+        // routes: {
+        //   "/":(context) =>  const Tabs(),
+        //   "/news":(context) => const NewsPage(aid: 100),
+        //   "/search":(context) => const SearchPage(),
+        //   "/form":(context) => const FormPage(),
+        // },
+
+        // 2 配置  onGenerateRoute
+        onGenerateRoute: onGenerateRoute);
   }
 }

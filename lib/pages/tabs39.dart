@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+
 import './tabs/collection.dart';
-import './tabs/home38.dart';
+import './tabs/home39.dart';
 import './tabs/shop.dart';
 import './tabs/person.dart';
 import './tabs/message.dart';
@@ -30,7 +31,7 @@ class _TabsState extends State<Tabs> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.red,
-        title: const Text('Material App Bar'),
+        title: const Text('Material App Bar 39'),
       ),
       drawer: const Drawer(
         child: Column(

@@ -26,7 +26,7 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(height: 10,),
           ElevatedButton(onPressed: (){
             Navigator.of(context).push(
-              MaterialPageRoute(builder: (context) => const FormPage())
+              MaterialPageRoute(builder: (context) => const FormPage(arguments: {},))
             );
           }, child:const Text("表单")),
           const SizedBox(height: 10,),
