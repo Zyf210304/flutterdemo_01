@@ -1,6 +1,7 @@
 import 'dart:ffi';
 
 import 'package:flutter/material.dart';
+import 'package:fluttertoast/fluttertoast.dart';
 
 class NewsPage extends StatefulWidget {
 
@@ -29,8 +30,16 @@ class _NewsPageState extends State<NewsPage> {
       floatingActionButton: FloatingActionButton(onPressed: (){
         Navigator.pop(context);
       }, child: const Icon(Icons.home),),
-      body: const Center(
-        child: Text("新闻页面"),
+      body:  Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [ 
+            Text("新闻"),
+            TextButton(onPressed: (){
+              Fluttertoast.showToast(msg: "this is a  center Toast", timeInSecForIosWeb: 1, gravity: ToastGravity.CENTER);
+            }, child: Text("toast"))
+          ],
+        ),
       ),
     );
   }
