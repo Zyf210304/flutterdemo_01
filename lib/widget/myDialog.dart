@@ -5,7 +5,7 @@ class MyDialog extends Dialog {
   final String content;
   // final Function onTap;
   final Function()? onTap;
-  Function(String) onSelect;
+  final Function(String) onSelect;
 
   MyDialog(
       {super.key,
@@ -16,9 +16,9 @@ class MyDialog extends Dialog {
   Widget build(BuildContext context) {
     // TODO: implement build
     return Material(
-      type: MaterialType.transparency,
-      child: Center(
-        child: Container(
+      type: MaterialType.transparency,    //设置背景色透明
+      child: Center(              //center包裹 组件 防止全屏
+        child: Container(  
           height: 200,
           width: 200,
           color: Colors.white,
@@ -38,7 +38,9 @@ class MyDialog extends Dialog {
                       Align(
                         alignment: Alignment.centerRight,
                         child: InkWell(
-                            onTap: onSelect("hahahhah"), child: const Icon(Icons.close)),
+                            // onTap: onSelect("hahahhah"), child: const Icon(Icons.close)),
+                            //  onTap: onTap, child: const Icon(Icons.close)),
+                            onTap:() => onSelect("测试"), child: const Icon(Icons.close)),
                       )
                     ],
                   )),

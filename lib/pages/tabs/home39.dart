@@ -24,11 +24,13 @@ class _HomePageState extends State<HomePage> {
               print("close");
             },
             onSelect: (ele) {
+              // Navigator.of(context).pop();
               Navigator.of(context).pop(ele);
+              // print(ele);
             },
           );
         });
-  print(result);
+    print(result);
   }
 
   Widget build(BuildContext context) {
